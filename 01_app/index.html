@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CROSテストをやってみよう</title>
+</head>
+
+<body>
+
+    <h1>ぼでぃー</h1>
+    <h2>ぼでぃー</h2>
+    <h3>ぼでぃー</h3>
+
+    <div>
+        <button id="button1" type="button">ボタンforEC2</button>
+    </div>
+
+    <div>
+        <button id="button2" type=>ボタンforAPIGW</button>
+    </div>
+
+    <img src="./dribblbe-01.png" alt="HTML5ロゴ">
+
+</body>
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script type="text/javascript">
+
+    document.write("<p>JavaScript テスト</p>");
+
+    document.getElementById("button1").onclick = function () {
+        document.getElementById("button1").innerHTML = "クリックされた！";
+        console.log("testtesttest");    
+
+        axios.get('http://ec2-3-112-213-205.ap-northeast-1.compute.amazonaws.com/hello/')
+
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+    };
+
+    document.getElementById("button2").onclick = function () {
+        document.getElementById("button2").innerHTML = "クリックされたんだよ！";
+        console.log("testtesttest2");
+
+        axios.get('https://ipfb4dw5d0.execute-api.ap-northeast-1.amazonaws.com/stage2')
+
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+    };
+
+
+</script>
+
+
+
+</html>
